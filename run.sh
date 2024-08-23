@@ -13,11 +13,11 @@ fi
 echo "Testing $CODE in $MODE mode."
 if [ "$MODE" == "debug" ] ; then
   mkdir -p .debug
-  clang++ -g -O0 -DDEBUG -std=c++20 $CODE -o .debug/binary -Wno-unqualified-std-cast-call
+  clang++ -g -O0 $CODE -o .debug/binary
   .debug/binary
 elif [ "$MODE" == "release" ] ; then
   mkdir -p .release
-  clang++ -O3 -DNDEBUG -std=c++20 $CODE -o .release/binary -Wno-unqualified-std-cast-call
+  clang++ -O3 $CODE -o .release/binary
   .release/binary
 else
   echo '$MODE must be `debug` or `release`.'

@@ -35,14 +35,6 @@ struct ThreadSafeCout {
 static ThreadSafeCout cout;
 static ThreadSafeCoutSection::Endl endl;
 
-int main(int argc, char** argv) {
-#if defined(NDEBUG) && !defined(DEBUG)
-  cout << "Running the NDEBUG build." << endl;
-#elif defined(DEBUG) && !defined(NDEBUG)
-  cout << "Running the DEBUG build." << endl;
-#else
-#error "Must have either `DEBUG` or `NDEBUG` `#define`-d."
-#endif
-
+int main() {
   cout << "OK" << endl;
 }
