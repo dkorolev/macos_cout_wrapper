@@ -4,7 +4,7 @@
 using std::mutex;
 using std::lock_guard;
 
-struct ThreadSafeCoutSection : std::ostream {
+struct ThreadSafeCoutSection {
   lock_guard<mutex> lock;
   ThreadSafeCoutSection(mutex& mut) : lock(mut) {
   }
